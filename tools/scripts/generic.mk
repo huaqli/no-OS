@@ -37,3 +37,10 @@ include ../../tools/scripts/linux.mk
 endif
 
 endif
+
+list:
+ifeq ($(OS), Windows_NT)
+	@echo $(subst $(space),,$(sort $(SRCS) $(INCS)))
+else
+	@echo $(sort $(SRCS) $(INCS)) | tr ' ' '\n'
+endif
